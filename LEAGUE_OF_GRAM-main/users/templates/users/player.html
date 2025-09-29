@@ -1,0 +1,156 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ユーザプレイヤーのショート動画</title>
+    <link rel="stylesheet" href="{% static 'css/player.css' %}">
+    <link rel="icon" type="image/jpg" href="{% static 'image/icone.jpg' %}">
+</head>
+
+<body>
+    <nav class="top">
+        <div class="text">メニュー</div>
+        <div class="nav-all-links">
+            <a href="{% url 'index' %}" class="nav-link">メインページ</a>
+            <a href="{% url 'game' %}" class="nav-link">ゲームプレイ画面</a>
+            <a href="{% url 'champ' %}" class="nav-link">投稿チャンピオン(キャラ)紹介</a>
+            <a href="{% url 'player' %}" class="nav-link">ユーザプレイヤーのショート動画</a>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'login' %}"><button>ログイン</button></a></li>
+                    <li><a href="{% url 'register' %}"><button>アカウント作成</button></a></li>
+                </ul>
+            </nav>
+        </div>
+
+        {% load static %}
+        <div class="profile-section">
+            <a href="{% url 'users-profile' %}" class="nav-link">
+                <span>プロフィール</span>
+            </a>
+        </div>
+    </nav>
+    <main class="main-content">
+        <div class="skt1-section">
+            <img src="{% static 'image/skt1.jpg' %}" alt="Champions" class="skt1-image">
+            <div class="skt1-overlay">
+                <h1 class="skt1-title">トッププレイや紹介</h1>
+            </div>
+        </div>
+        <section class="reels-section">
+            <h2 class="section-title">プロプレイヤーの名場面</h2>
+            <div class="reels-grid">
+
+                <!-- Reel -->
+                <div class="reel-card">
+                    <div class="reel-video-container">
+                        <video class="reel-video" controls>
+                            <source src="{% get_media_prefix %}video/ruler.video.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="reel-info">
+                        <h3 class="reel-title">Ruler - Varus Snipe</h3>
+                        <p class="reel-description">試合を決めた一矢 - 2017 Worlds</p>
+                        <div class="reel-stats">
+                            <span>2.5M 視聴</span>
+                            <span>• SSG vs SKT</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="gameplay-details">
+            <h2 class="section-title">プロプレイヤー紹介</h2>
+
+            <div class="game-phases">
+                <div class="phase-cards">
+                    <div class="phase-card">
+                        <h4>Faker</h4>
+                        <img src="{% static 'image/faker.jpg' %}" alt="Faker" class="phase-image">
+                        <ul>
+                            <li>T1所属の伝説的ミッドレーナー</li>
+                            <li>3度のWorld Champion</li>
+                        </ul>
+                    </div>
+                    <div class="phase-card">
+                        <h4>Canyon</h4>
+                        <img src="{% static 'image/Canyon.png' %}" alt="Canyon" class="phase-image">
+                        <ul>
+                            <li>Gen.G所属の天才ジャングラー</li>
+                            <li>2020年World Champion</li>
+                        </ul>
+                    </div>
+                    <div class="phase-card">
+                        <h4>Ruler</h4>
+                        <img src="{% static 'image/ruler.jpg' %}" alt="Ruler" class="phase-image">
+                        <ul>
+                            <li>JDG所属のエース級ADC</li>
+                            <li>2017年World Champion</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="positions-guide">
+                <h3>日本のプロプレイヤー</h3>
+                <div class="position-cards">
+                    <div class="position-card">
+                        <h4>Ceros</h4>
+                        <p>DetonatioN FocusMe所属のミッドレーナー</p>
+                        <span class="player-achievements">LJL優勝回数: 7回</span>
+                    </div>
+                    <div class="position-card">
+                        <h4>Yutapon</h4>
+                        <p>DetonatioN FocusMe所属のADC</p>
+                        <span class="player-achievements">LJL優勝回数: 8回</span>
+                    </div>
+                    <div class="position-card">
+                        <h4>Evi</h4>
+                        <p>DetonatioN FocusMe所属のトップレーナー</p>
+                        <span class="player-achievements">LJL優勝回数: 6回</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="beginner-tips">
+                <h3>プロから学ぶコツ</h3>
+                <div class="tips-container">
+                    <div class="tip-card">
+                        <h4>上達のポイント</h4>
+                        <ul>
+                            <li>マップ認識の向上</li>
+                            <li>CSの効率化</li>
+                            <li>オブジェクト管理</li>
+                        </ul>
+                    </div>
+                    <div class="tip-card">
+                        <h4>メンタル管理</h4>
+                        <ul>
+                            <li>ティルトの防止</li>
+                            <li>チーム連携の重要性</li>
+                            <li>ポジティブな姿勢</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>© 2025 リーグ・オブ・レジェンド ファンサイト</p>
+        </footer>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+        <script>
+            AOS.init({
+                duration: 1000,
+                once: true,
+                offset: 100
+            });
+        </script>
+</body>
+
+</html>

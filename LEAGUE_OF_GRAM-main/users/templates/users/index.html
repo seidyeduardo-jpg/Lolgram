@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lolgram</title>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="icon" type="image/jpg" href="{% static 'image/icone.jpg' %}">
+</head>
+
+<body>
+    <nav class="topo">
+        <div class="site-menu">メニュー</div>
+        <div class="menu-links">
+            <a href="{% url 'index' %}" class="menu-link">メインページ</a>
+            <a href="{% url 'game' %}" class="menu-link">ゲームプレイ画面</a>
+            <a href="{% url 'champ' %}" class="menu-link">投稿チャンピオン(キャラ)紹介</a>
+            <a href="{% url 'player' %}" class="menu-link">ユーザプレイヤーのショート動画</a>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'login' %}"><button>ログイン</button></a></li>
+                    <li><a href="{% url 'register' %}"><button>アカウント作成</button></a></li>
+                </ul>
+            </nav>
+        </div>
+        {% load static %}
+        <div class="user-profile">
+            <a href="{% url 'users-profile' %}" class="menu-link">
+                <span>プロフィール</span>
+            </a>
+        </div>
+    </nav>
+
+    <main class="pagina">
+        <img src="{% static 'image/News.png' %}" alt="チャンピオン" class="photo-image">
+        <h1>
+            作品テーマ:Lolgram
+        </h1>
+
+        <section class="content-section">
+            <div class="champion-intro">
+                <h2 class="intro-title">新チャンピオン</h2>
+                <p class="intro-text">
+                    サミーラ(Samira)は、リーグ・オブ・レジェンドに登場する人気のチャンピオンで、魅力的で大胆なプレイスタイルを持っています。
+                    彼女は「砂漠の薔薇」という異名を持ち、剣術と銃撃を組み合わせた独自の戦闘スタイルで戦います。
+                </p>
+            </div>
+
+            <div class="champion-gallery">
+                <div class="gallery-item">
+                    <img src="{% static 'image/Rectangle 5.png' %}" alt="チャンピオン 1">
+                </div>
+                <div class="gallery-item">
+                    <img src="{% static 'image/Rectangle 4.png' %}" alt="チャンピオン 2">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>© 2025 リーグ・オブ・レジェンド ファンサイト</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+    </script>
+</body>
+
+</html>

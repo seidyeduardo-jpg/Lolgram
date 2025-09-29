@@ -1,0 +1,201 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ゲームプレイ画面 LoL</title>
+    <link rel="stylesheet" href="{% static 'css/game.css' %}">
+    <link rel="icon" type="image/jpg" href="{% static 'image/icone.jpg' %}">
+</head>
+
+<body>
+    <nav class="top">
+        <div class="text">メニュー</div>
+        <div class="nav-all-links">
+            <a href="{% url 'index' %}" class="nav-link">メインページ</a>
+            <a href="{% url 'game' %}" class="nav-link">ゲームプレイ画面</a>
+            <a href="{% url 'champ' %}" class="nav-link">投稿チャンピオン(キャラ)紹介</a>
+            <a href="{% url 'player' %}" class="nav-link">ユーザプレイヤーのショート動画</a>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'login' %}"><button>ログイン</button></a></li>
+                    <li><a href="{% url 'register' %}"><button>アカウント作成</button></a></li>
+                </ul>
+            </nav>
+        </div>
+        {% load static %}
+        <div class="profile-section">
+            <a href="{% url 'users-profile' %}" class="nav-link">
+                <span>プロフィール</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- 既存のビデオセクションの後に追加 -->
+    <div class="game-intro-section">
+        <div class="game-info-container">
+            <div class="game-card">
+                <div class="game-image-container">
+                    <img src="{% static 'image/game-map.jpg' %}" alt="サモナーズリフト" class="game-image">
+                </div>
+                <div class="game-info">
+                    <h2 class="game-title">ゲームプレイ画面</h2>
+                    <p class="game-description">
+                        5対5のチーム対戦型戦略ゲーム。各プレイヤーがチャンピオンを選び、敵のネクサスを破壊することが勝利条件です。
+                    </p>
+                </div>
+            </div>
+
+            <div class="game-features">
+                <div class="feature-box">
+                    <h3>マップ戦略</h3>
+                    <img src="{% static 'image/map.png' %}" alt="マップ戦略" class="feature-image">
+                    <p>3つのレーンとジャングルで構成された戦略的なマップ</p>
+                </div>
+
+                <div class="feature-box">
+                    <h3>チャンピオン</h3>
+                    <img src="{% static 'image/riven.jpg' %}" alt="チャンピオン" class="feature-image">
+                    <p>160種類以上の個性的なチャンピオンから選択可能</p>
+                </div>
+
+                <div class="feature-box">
+                    <h3>チーム戦術</h3>
+                    <img src="{% static 'image/game-map.jpg' %}" alt="チーム戦術" class="feature-image">
+                    <p>味方との連携が勝利の鍵となるチーム戦</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <!-- game -->
+    <div class="gameplay-details">
+        <h2 class="section-title"></h2>
+
+        <!-- game -->
+        <div class="game-phases">
+            <div class="phase-cards">
+                <div class="phase-card">
+                    <h4>序盤（レーン戦）</h4>
+                    <img src="{% static 'image/minion.jpg' %}" alt="序盤" class="phase-image">
+                    <ul>
+                        <li>ミニオンから経験値とゴールドを獲得</li>
+                    </ul>
+                </div>
+                <div class="phase-card">
+                    <h4>中盤（チーム戦）</h4>
+                    <img src="{% static 'image/torre.jpg' %}" alt="中盤" class="phase-image">
+                    <ul>
+                        <li>タワーの攻略</li>
+                    </ul>
+                </div>
+                <div class="phase-card">
+                    <h4>終盤（決戦）</h4>
+                    <img src="{% static 'image/nexus.jpg' %}" alt="終盤" class="phase-image">
+                    <ul>
+                        <li>ネクサスの破壊</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- ポジション説明 -->
+        <div class="positions-guide">
+            <h3>ポジション役割</h3>
+            <div class="position-cards">
+                <div class="position-card">
+                    <h4>トップレーン</h4>
+                    <p>単独で戦う耐久型チャンピオン</p>
+                    <span class="position-difficulty">難易度: ★★★</span>
+                </div>
+                <div class="position-card">
+                    <h4>ジャングル</h4>
+                    <p>マップ全体での戦略的行動</p>
+                    <span class="position-difficulty">難易度: ★★★★★</span>
+                </div>
+                <div class="position-card">
+                    <h4>ミッドレーン</h4>
+                    <p>高い火力と機動力の魔法使い</p>
+                    <span class="position-difficulty">難易度: ★★★★</span>
+                </div>
+                <div class="position-card">
+                    <h4>ボットレーン（ADC）</h4>
+                    <p>安定したダメージソース</p>
+                    <span class="position-difficulty">難易度: ★★★★</span>
+                </div>
+                <div class="position-card">
+                    <h4>サポート</h4>
+                    <p>味方を支援する守護者</p>
+                    <span class="position-difficulty">難易度: ★★★</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 重要な目標物 -->
+        <div class="objectives-guide">
+            <h3>重要な目標物</h3>
+            <div class="objectives-container">
+                <div class="objective-item">
+                    <img src="{% static 'image/dragao.jpg' %}" alt="ドラゴン" class="objective-image">
+                    <div class="objective-info">
+                        <h4>ドラゴン</h4>
+                        <p>チーム全体への永続的なバフ効果を付与</p>
+                    </div>
+                </div>
+                <div class="objective-item">
+                    <img src="{% static 'image/barao.jpg' %}" alt="バロン" class="objective-image">
+                    <div class="objective-info">
+                        <h4>バロン・ナッシャー</h4>
+                        <p>強力な一時的バフで押し込みを支援</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 初心者向けアドバイス -->
+        <div class="beginner-tips">
+            <h3>初心者向けアドバイス</h3>
+            <div class="tips-container">
+                <div class="tip-card">
+                    <h4>基本の習得</h4>
+                    <ul>
+                        <li>ラストヒットの練習</li>
+                        <li>安全な位置取り</li>
+                        <li>ミニマップの確認</li>
+                    </ul>
+                </div>
+                <div class="tip-card">
+                    <h4>おすすめチャンピオン</h4>
+                    <ul>
+                        <li>ガレン（トップ）</li>
+                        <li>アーリ（ミッド）</li>
+                        <li>ルックス（サポート）</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    </main>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+    </script>
+    <footer class="footer">
+        <p>© 2025 リーグ・オブ・レジェンド ファンサイト</p>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,244 @@
+/* League of Legends Inspired Face Capture CSS */
+
+/* Global variables */
+:root {
+    --lol-gold: #c8aa6e;
+    --lol-blue: #0ac8b9;
+    --lol-dark-blue: #091428;
+    --lol-medium-blue: #0a1428;
+    --lol-light-blue: #cdfafa;
+    --lol-dark-grey: #1e2328;
+    --lol-border: 1px solid var(--lol-gold);
+    --lol-glow: 0 0 8px var(--lol-blue);
+}
+
+/* Global reset and fonts */
+body {
+    font-family: 'Beaufort for LOL', 'Spiegel', 'Beaufort', 'goudy-old-style', serif;
+    background-color: var(--lol-dark-blue);
+    color: #fff;
+    background-image: url('/static/images/lol-background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* Card styling */
+.card {
+    background-color: rgba(10, 20, 40, 0.85) !important;
+    border: var(--lol-border) !important;
+    box-shadow: var(--lol-glow) !important;
+    backdrop-filter: blur(5px);
+}
+
+.card-header {
+    background-color: var(--lol-medium-blue) !important;
+    border-bottom: var(--lol-border) !important;
+}
+
+.card-header h3 {
+    color: var(--lol-gold);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+    text-shadow: 0 0 4px rgba(200, 170, 110, 0.6);
+}
+
+/* Alert styling */
+.alert-info {
+    background-color: rgba(12, 28, 40, 0.7) !important;
+    border: 1px solid var(--lol-blue) !important;
+    color: var(--lol-light-blue) !important;
+}
+
+.alert-info strong {
+    color: var(--lol-gold);
+}
+
+.alert-info ul {
+    padding-left: 20px;
+}
+
+.alert-info li {
+    margin-bottom: 8px;
+    position: relative;
+}
+
+.alert-info li::before {
+    content: "•";
+    color: var(--lol-blue);
+    font-weight: bold;
+    display: inline-block;
+    width: 15px;
+    margin-left: -15px;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: var(--lol-dark-blue) !important;
+    color: var(--lol-gold) !important;
+    border: var(--lol-border) !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 10px 20px;
+    transition: all 0.3s;
+    font-weight: bold;
+}
+
+.btn-primary:hover {
+    background-color: var(--lol-medium-blue) !important;
+    box-shadow: var(--lol-glow) !important;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: transparent !important;
+    color: #cdfafa !important;
+    border: 1px solid #cdfafa !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 10px 20px;
+    transition: all 0.3s;
+    margin-left: 10px;
+}
+
+.btn-secondary:hover {
+    background-color: rgba(205, 250, 250, 0.1) !important;
+    box-shadow: 0 0 8px rgba(205, 250, 250, 0.5) !important;
+}
+
+/* Camera container (to be added to the HTML) */
+.camera-container {
+    position: relative;
+    width: 320px;
+    height: 240px;
+    margin: 20px auto;
+    border: var(--lol-border);
+    overflow: hidden;
+    box-shadow: var(--lol-glow);
+}
+
+.camera-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: linear-gradient(45deg, transparent 49%, var(--lol-gold) 49%, var(--lol-gold) 51%, transparent 51%);
+    background-size: 10px 10px;
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+.camera-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 1px solid var(--lol-blue);
+    box-shadow: inset 0 0 10px var(--lol-blue);
+    pointer-events: none;
+}
+
+/* Hexagon overlay for face detection */
+.face-hexagon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+    height: 150px;
+    background-image: url('/static/images/hexagon.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+/* Animation for the scan effect */
+@keyframes scanline {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(100%);
+    }
+}
+
+.scan-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(to bottom, transparent, var(--lol-blue), transparent);
+    animation: scanline 2s ease-in-out infinite;
+    opacity: 0.7;
+    pointer-events: none;
+    display: none;
+}
+
+/* Show scan effect when active */
+.scanning .scan-effect {
+    display: block;
+}
+
+/* Username styling */
+.username {
+    color: var(--lol-gold);
+    font-weight: bold;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    .card {
+        margin: 10px;
+    }
+    
+    .camera-container {
+        width: 280px;
+        height: 210px;
+    }
+    
+    .btn-primary, .btn-secondary {
+        display: block;
+        width: 100%;
+        margin: 10px 0;
+    }
+}
+
+/* Fonts */
+@font-face {
+    font-family: 'Beaufort for LOL';
+    src: url('/static/fonts/BeaufortforLOL-Bold.woff2') format('woff2');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Spiegel';
+    src: url('/static/fonts/Spiegel-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Capture animation */
+@keyframes capture-pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(10, 200, 185, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(10, 200, 185, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(10, 200, 185, 0);
+    }
+}
+
+.capturing {
+    animation: capture-pulse 1s infinite;
+}

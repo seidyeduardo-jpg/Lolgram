@@ -1,0 +1,115 @@
+{% extends 'users/base.html' %}
+{% load static %}
+
+{% block title %}顔認証設定{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">z
+                <div class="card-header text-center">
+                    <h3>📸 顔認証設定</h3>
+                    <p class="text-muted mb-0">ユーザー: {{ username }}</p>
+                </div>
+                <div class="card-body">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-user-plus fa-3x text-primary mb-3"></i>
+                        <h5>顔認証を設定してください</h5>
+                        <p class="text-muted">
+                            顔認証ログインの設定のため、顔の画像を撮影します。
+                            十分な照明を確保し、カメラの中央に顔を配置してください。
+                        </p>
+                    </div>
+                    
+                    <div class="alert alert-info">
+                        <h6><i class="fas fa-info-circle"></i> 手順:</h6>
+                        <ul class="mb-0">
+                            <li>カメラの中央に顔を配置してください</li>
+                            <li>自然な表情を保ってください</li>
+                            <li>十分な照明を確保してください</li>
+                            <li>自動検出をお待ちください（2秒間）</li>
+                        </ul>
+                    </div>
+                    
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                <i class="fas fa-camera"></i> 顔認証設定を開始
+                            </button>
+                        </div>
+                    </form>
+                    
+                    <div class="mt-4 text-center">
+                        <a href="{% url 'c_user_ok' %}" class="btn btn-outline-secondary">
+                            <i class="fas fa-times"></i> 顔認証設定をスキップ
+                        </a>
+                    </div>
+                    
+                    {% if messages %}
+                        <div class="mt-3">
+                            {% for message in messages %}
+                                <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                                    {{ message }}
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+            
+            <div class="card mt-3">
+                <div class="card-body">
+                    <h6 class="card-title">
+                        <i class="fas fa-shield-alt text-success"></i> セキュリティ
+                    </h6>
+                    <p class="card-text small text-muted">
+                        お客様の顔データは安全にデータベースに保存されます。
+                        データは暗号化され、認証目的でのみ使用されます。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.card {
+    border: none;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    border-radius: 15px;
+}
+
+.card-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 15px 15px 0 0 !important;
+    border: none;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 10px;
+    padding: 12px 24px;
+    font-weight: 600;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.alert-info {
+    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+    border: none;
+    border-radius: 10px;
+}
+
+.fa-camera {
+    margin-right: 8px;
+}
+</style>
+{% endblock %} 

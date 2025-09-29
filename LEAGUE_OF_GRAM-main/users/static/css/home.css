@@ -1,0 +1,320 @@
+/*home*/
+:root {
+    --lol-pink: #FF69B4;
+    --lol-pink-darker: #C71585;
+    --lol-pink-light: #FFE4E1;
+    --lol-blue: #CDFAFA;
+    --lol-dark: #010A13;
+    --lol-darker: #0A1428;
+    --lol-gray: #1E2328;
+}
+
+/* 基本スタイル */
+body {
+    background: #000;
+    background-image: 
+        linear-gradient(135deg, rgba(10, 20, 40, 0.97), rgba(1, 10, 19, 0.98)),
+        url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L60 30L30 60L0 30L30 0z' fill='%23C71585' fill-opacity='0.05'/%3E%3C/svg%3E");
+    color: var(--lol-pink-light);
+    font-family: 'Spiegel', 'Arial', sans-serif;
+    min-height: 100vh;
+}
+
+/* フォームコンテンツ */
+.form-content {
+    min-height: 100vh;
+    padding: 3rem 0;
+    position: relative;
+}
+
+/* カード */
+.card {
+    background: linear-gradient(to bottom, var(--lol-darker), var(--lol-dark));
+    border: 1px solid var(--lol-pink-darker) !important;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
+    max-width: 420px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, 
+        transparent,
+        var(--lol-pink-darker),
+        var(--lol-pink),
+        var(--lol-pink-darker),
+        transparent
+    );
+}
+
+.card:hover {
+    animation: cardGlow 3s infinite;
+}
+
+/* 画像 */
+.jpg {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 2px solid var(--lol-pink-darker);
+    filter: brightness(0.9) contrast(1.1) saturate(1.1);
+    transition: all 0.5s ease;
+}
+
+.jpg:hover {
+    filter: brightness(1.1) contrast(1.2) saturate(1.2);
+    transform: scale(1.02);
+}
+
+/* カードヘッダー */
+.card-header {
+    background: rgba(8, 16, 27, 0.7);
+    border-bottom: 2px solid var(--lol-pink-darker);
+    padding: 1.2rem 1rem;
+}
+
+.font-weight-light {
+    color: var(--lol-pink);
+    font-size: 22px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5),
+                 0 0 10px rgba(255, 105, 180, 0.3);
+    font-weight: 600;
+    text-align: center;
+}
+
+/* エラーメッセージコンテナ */
+.top-error-container {
+    background-color: #300A24;
+    color: #FF8EC7;
+    border: 1px solid #FF8EC7;
+    border-radius: 4px;
+    padding: 20px;
+    margin: 0 20px 20px 20px;
+}
+
+.top-error-container div {
+    margin-bottom: 8px;
+}
+
+/* アラートメッセージ */
+.alert-danger {
+    background-color: rgba(199, 21, 133, 0.15);
+    border: 1px solid var(--lol-pink-darker);
+    color: var(--lol-pink-light);
+    border-radius: 4px;
+    padding: 10px 15px;
+    margin-bottom: 20px;
+    text-align: left;
+    width: 340px;
+}
+
+.alert-danger p {
+    margin: 5px 0;
+}
+
+/* カードボディ */
+.card-body {
+    padding: 1.5rem;
+}
+
+/* フォーム */
+form {
+    position: relative;
+}
+
+/* フォームグループ */
+.form-group {
+    margin-bottom: 1.8rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+
+/* ラベル */
+label.small {
+    color: var(--lol-pink);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    display: block;
+    text-align: left;
+    width: 100%;
+    padding-left: 2px;
+}
+
+/* フォームコントロール */
+.form-control {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--lol-pink-darker);
+    color: var(--lol-pink-light);
+    padding: 0.8rem 1rem;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 5px;
+}
+
+.form-control:focus {
+    background: rgba(0, 0, 0, 0.5);
+    border-color: var(--lol-pink);
+    box-shadow: 0 0 0 1px var(--lol-pink),
+                0 0 15px rgba(255, 105, 180, 0.2);
+    color: white;
+    outline: none;
+}
+
+/* プレースホルダー */
+::placeholder {
+    color: rgba(255, 255, 255, 0.4) !important;
+    opacity: 1;
+    text-align: left;
+}
+
+/* ボタン */
+.btn-primary {
+    background: linear-gradient(to bottom, 
+        var(--lol-pink) 0%,
+        var(--lol-pink-darker) 100%);
+    border: 1px solid var(--lol-pink);
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 0.8rem 2rem;
+    font-weight: 600;
+    font-size: 13px;
+    transition: all 0.3s ease;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(to bottom,
+        #FF83BB 0%,
+        var(--lol-pink) 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3),
+                0 0 15px rgba(255, 105, 180, 0.3);
+}
+
+/* ボタンコンテナ */
+.form-group.mt-4.mb-0 {
+    align-items: center;
+}
+
+/* カードフッター */
+.card-footer {
+    background: rgba(8, 16, 27, 0.7);
+    border-top: 2px solid var(--lol-pink-darker);
+    padding: 1.2rem;
+}
+
+.card-footer .small a {
+    color: var(--lol-pink);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+}
+
+.card-footer .small a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--lol-pink);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.card-footer .small a:hover {
+    color: #FF83BB;
+    text-shadow: 0 0 8px rgba(255, 131, 187, 0.4);
+}
+
+.card-footer .small a:hover::after {
+    transform: scaleX(1);
+}
+
+/* フォームエラー */
+.form-error {
+    color: var(--lol-pink-light);
+    background-color: rgba(199, 21, 133, 0.15);
+    border-left: 3px solid var(--lol-pink);
+    padding: 8px 12px;
+    margin-top: 8px;
+    font-size: 0.85rem;
+    border-radius: 0 2px 2px 0;
+    width: 100%;
+    text-align: left;
+}
+
+.form-error p {
+    margin: 0;
+    padding: 2px 0;
+}
+
+/* インバリッドフォーム */
+.form-control.is-invalid {
+    border-color: var(--lol-pink);
+    box-shadow: 0 0 0 1px var(--lol-pink);
+    background-image: none;
+    text-align: left;
+}
+
+.was-validated .form-control:invalid,
+.form-control.is-invalid {
+    background-image: none;
+}
+
+/* フィールド下のエラーメッセージを非表示 */
+.form-group ul, 
+.form-group li, 
+ul.errorlist, 
+li.errorlist, 
+.error-text, 
+.text-danger,
+.invalid-feedback,
+.help-block,
+.errorlist,
+.form-errors,
+.form-group > ul {
+    display: none !important;
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+    .form-content {
+        padding: 1rem;
+    }
+    
+    .card {
+        margin: 0.5rem auto;
+    }
+    
+    .font-weight-light {
+        font-size: 18px;
+    }
+}
+
+/* アニメーション */
+@keyframes cardGlow {
+    0%, 100% { box-shadow: 0 0 40px rgba(0, 0, 0, 0.8); }
+    50% { box-shadow: 0 0 50px rgba(199, 21, 133, 0.3); }
+}

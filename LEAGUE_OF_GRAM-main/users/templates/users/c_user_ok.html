@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>c_user_ok</title>
+    <link rel="stylesheet" href="{% static 'css/c_user_ok.css' %}">
+    <link rel="icon" type="image/jpg" href="{% static 'image/icone.jpg' %}">
+</head>
+
+<body>
+    {% csrf_token %}
+    <h1 id="logado"></h1>
+    <p>アカウントの登録が完了しました。</p>
+    <p>3秒後にログインページに切り替わります。</p>
+    <p class="timer"><span id="countdown">3</span>秒</p>
+    </div>
+
+    <script src="{% static 'js/c_user_ok.js' %}"></script>
+</body>
+
+</html>

@@ -1,0 +1,433 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>投稿チャンピオン(キャラ)紹介</title>
+    <link rel="icon" type="image/jpg" href="{% static 'image/icone.jpg' %}">
+    <link rel="stylesheet" href="{% static 'css/champ.css' %}">
+</head>
+
+
+<body>
+    <nav class="top_page">
+        <div class="text">メニュー</div>
+        <div class="nav-links">
+            <a href="{% url 'index' %}" class="nav-link">メインページ</a>
+            <a href="{% url 'game' %}" class="nav-link">ゲームプレイ画面</a>
+            <a href="{% url 'champ' %}" class="nav-link">投稿チャンピオン(キャラ)紹介</a>
+            <a href="{% url 'player' %}" class="nav-link">ユーザプレイヤーのショート動画</a>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'login' %}"><button>ログイン</button></a></li>
+                    <li><a href="{% url 'register' %}"><button class="auth-btn">アカウント作成</button></a></li>
+                </ul>
+            </nav>
+        </div>
+        {% load static %}
+        <div class="profile-section">
+            <a href="{% url 'users-profile' %}" class="nav-link">
+                <span>プロフィール</span>
+            </a>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="character-section">
+            <img src="{% static 'image/champion.webp' %}" alt="Champions" class="character-image">
+            <div class="character-overlay">
+                <h1 class="character-title">投稿チャンピオン(キャラ)紹介</h1>
+
+            </div>
+        </div>
+
+        <main class="main-content">
+            <!-- champions キャラ -->
+            <div class="players-grid">
+                <!-- yasuo ahri lux -->
+                <div class="player-card">
+                    <div class="player-image-container">
+                        <img src="{% static 'image/ahri.jpg' %}" alt="Ahri" class="player-image">
+                    </div>
+                    <div class="player-info">
+                        <h2 class="player-name">アーリ</h2>
+                        <p class="player-team">AP Mage</p>
+
+                        <div class="player-stats">
+                            <div class="stat">
+                                <div class="stat-value">Mid</div>
+                                <div class="stat-label">ポジション</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">物理</div>
+                                <div class="stat-label">ダメージタイプ</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">高級</div>
+                                <div class="stat-label">難易度</div>
+                            </div>
+                        </div>
+                        <div class="interaction-section">
+                            <button onclick="likePost(this)">👍 <span>0</span></button>
+                            </button>
+                            <div class="comments-section">
+                                <div class="comments-list" id="ahri-comments"></div>
+                                <div class="comment-input-section">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Yasuo -->
+                <div class="player-card">
+                    <div class="player-image-container">
+                        <img src="{% static 'image/yasuo.jpg' %}" alt="Yasuo" class="player-image">
+                    </div>
+                    <div class="player-info">
+                        <h2 class="player-name">ヤスオ</h2>
+                        <p class="player-team">Fighter</p>
+                        <div class="player-stats">
+                            <div class="stat">
+                                <div class="stat-value">Mid</div>
+                                <div class="stat-label">ポジション</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">物理</div>
+                                <div class="stat-label">ダメージタイプ</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">高級</div>
+                                <div class="stat-label">難易度</div>
+                            </div>
+                        </div>
+                        <div class="interaction-section">
+                            <button onclick="likePost(this)">👍 <span>0</span></button>
+                            </button>
+                            <div class="comments-section">
+                                <div class="comments-list" id="yasuo-comments"></div>
+                                <div class="comment-input-section">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Zed -->
+                <div class="player-card">
+                    <div class="player-image-container">
+                        <img src="{% static 'image/zed.jpg' %}" alt="Zed" class="player-image">
+                    </div>
+                    <div class="player-info">
+                        <h2 class="player-name">ゼド</h2>
+                        <p class="player-team">Assassin</p>
+                        <div class="player-stats">
+                            <div class="stat">
+                                <div class="stat-value">Mid</div>
+                                <div class="stat-label">ポジション</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">物理</div>
+                                <div class="stat-label">ダメージタイプ</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">高級</div>
+                                <div class="stat-label">難易度</div>
+                            </div>
+                        </div>
+                        <div class="interaction-section">
+                            <button onclick="likePost(this)">👍 <span>0</span></button>
+                            </button>
+                            <div class="comments-section">
+                                <div class="comments-list" id="zed-comments"></div>
+                                <div class="comment-input-section">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Lux -->
+                <div class="player-card">
+                    <div class="player-image-container">
+                        <img src="{% static 'image/lux.jpg' %}" alt="Lux" class="player-image">
+                    </div>
+                    <div class="player-info">
+                        <h2 class="player-name">ラックス</h2>
+                        <p class="player-team">Mage</p>
+                        <div class="player-stats">
+                            <div class="stat">
+                                <div class="stat-value">Mid</div>
+                                <div class="stat-label">ポジション</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">魔法</div>
+                                <div class="stat-label">ダメージタイプ</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">初級</div>
+                                <div class="stat-label">難易度</div>
+                            </div>
+                        </div>
+                        <div class="interaction-section">
+                            <button onclick="likePost(this)">👍 <span>0</span></button>
+                            </button>
+                            <div class="comments-section">
+                                <div class="comments-list" id="lux-comments"></div>
+                                <div class="comment-input-section">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </main>
+
+
+        <main class="main-content">
+            <div class="players-grid">
+                <div class="player-card">
+                    <div class="player-image-container">
+                        <img src="{% static 'image/katarina.jpg' %}" alt="katarina" class="player-image">
+                    </div>
+                    <div class="player-info">
+                        <h2 class="player-name">アーリ</h2>
+                        <p class="player-team">AP Mage</p>
+
+                        <div class="player-stats">
+                            <div class="stat">
+                                <div class="stat-value">Mid</div>
+                                <div class="stat-label">ポジション</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">物理</div>
+                                <div class="stat-label">ダメージタイプ</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">高級</div>
+                                <div class="stat-label">難易度</div>
+                            </div>
+                        </div>
+                        <div class="interaction-section">
+                            <button onclick="likePost(this)">👍 <span>0</span></button>
+                            </button>
+                            <div class="comments-section">
+                                <div class="comments-list" id="katarina-comments"></div>
+                                <div class="comment-input-section">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- tresh -->
+                <div class="player-card">
+                    <div class="player-image-container">
+                        <img src="{% static 'image/thresh.webp' %}" alt="thresh" class="player-image">
+                    </div>
+                    <div class="player-info">
+                        <h2 class="player-name">スラッシュ</h2>
+                        <p class="player-team">サポータ</p>
+                        <div class="player-stats">
+                            <div class="stat">
+                                <div class="stat-value">Sup</div>
+                                <div class="stat-label">ポジション</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">援護</div>
+                                <div class="stat-label">ダメージタイプ</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">高級</div>
+                                <div class="stat-label">難易度</div>
+                            </div>
+                        </div>
+                        <div class="interaction-section">
+                            <button onclick="likePost(this)">👍 <span>0</span></button>
+                            </button>
+                            <div class="comments-section">
+                                <div class="comments-list" id="thresh-comments"></div>
+                                <div class="comment-input-section">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- jinx -->
+                <div class="player-card">
+                    <div class="player-image-container">
+                        <img src="{% static 'image/jinx.jpg' %}" alt="jinx" class="player-image">
+                    </div>
+                    <div class="player-info">
+                        <h2 class="player-name">ジンクス</h2>
+                        <p class="player-team">Assassin</p>
+                        <div class="player-stats">
+                            <div class="stat">
+                                <div class="stat-value">Adc</div>
+                                <div class="stat-label">ポジション</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">物理</div>
+                                <div class="stat-label">ダメージタイプ</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">小級</div>
+                                <div class="stat-label">難易度</div>
+                            </div>
+                        </div>
+                        <div class="interaction-section">
+                            <button onclick="likePost(this)">👍 <span>0</span></button>
+                            </button>
+                            <div class="comments-section">
+                                <div class="comments-list" id="jinx-comments"></div>
+                                <div class="comment-input-section">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- lee sin -->
+                <div class="player-card">
+                    <div class="player-image-container">
+                        <img src="{% static 'image/leesin.jpg' %}" alt="leesin" class="player-image">
+                    </div>
+                    <div class="player-info">
+                        <h2 class="player-name">リシン</h2>
+                        <p class="player-team">格闘家,Assassin</p>
+                        <div class="player-stats">
+                            <div class="stat">
+                                <div class="stat-value">jg</div>
+                                <div class="stat-label">ポジション</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">物理</div>
+                                <div class="stat-label">ダメージタイプ</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">高級</div>
+                                <div class="stat-label">難易度</div>
+                            </div>
+                        </div>
+                        <div class="interaction-section">
+                            <button onclick="likePost(this)">👍 <span>0</span></button>
+                            </button>
+                            <div class="comments-section">
+                                <div class="comments-list" id="leesin-comments"></div>
+                                <div class="comment-input-section">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </main>
+
+
+
+
+        <div class="comment-section">
+            <h2 class="comment-section-title">投稿機能</h2>
+            <div class="post-input-container">
+                <textarea class="post-input" placeholder="投稿を書く..."></textarea>
+                <div class="media-upload-tools">
+                    <label class="upload-btn">
+                        📷 画像
+                        <input type="file" accept="image/*" onchange="handleImageUpload(event, 'championId')"
+                            style="display: none;">
+                    </label>
+                    <label class="upload-btn">
+                        🎥 動画
+                        <input type="file" accept="video/*" onchange="handleVideoUpload(event, 'championId')"
+                            style="display: none;">
+                    </label>
+                    <button class="post-btn" onclick="createPost('championId')">投稿</button>
+                </div>
+                <div id="media-preview" class="media-preview"></div>
+            </div>
+
+            <div class="posts-container">
+                <div class="post">
+                    <div class="post-header">
+                        <img src="{% static 'image/game.jpeg' %}" alt="User" class="post-avatar">
+                        <div class="post-user-info">
+                            <span class="post-username">田中聖治</span>
+                            <span class="post-time">2時間前</span>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <p>すごい</p>
+                        <div class="post-media">
+                        </div>
+                    </div>
+
+
+                    <div class="post-actions">
+                        <div class="comment-input-section">
+                            <form class="comment-form" onsubmit="submitComment(event, this)">
+                                {% csrf_token %}
+                                <input type="text" class="comment-input" name="comment_text" placeholder="コメントを追加">
+                                <button type="submit" class="post-btn">コメント</button>
+                            </form>
+                        </div>
+                        <div class="comments-container"></div>
+                    </div>
+
+                </div>
+                <div class="post-comments hidden"></div>
+            </div>
+        </div>
+
+        <div class="posts-container">
+            <div class="post">
+                <div class="post-header">
+                    <img src="{% static 'image/game2.jpg' %}" alt="User" class="post-avatar">
+                    <div class="post-user-info">
+                        <span class="post-username">ブライアン</span>
+                        <span class="post-time">３時間前</span>
+                    </div>
+                </div>
+                <div class="post-content">
+                    <p>面白い</p>
+                    <div class="post-media">
+                    </div>
+                </div>
+
+
+                <div class="post-actions">
+                    <div class="comment-input-section">
+                        <form class="comment-form" onsubmit="submitComment(event, this)">
+                            {% csrf_token %}
+                            <input type="text" class="comment-input" name="comment_text" placeholder="コメントを追加">
+                            <button type="submit" class="post-btn">コメント</button>
+                        </form>
+                    </div>
+                    <div class="comments-container"></div>
+                </div>
+
+            </div>
+            <div class="post-comments hidden"></div>
+        </div>
+        </div>
+
+        <!-- 既存のスクリプト -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+        <script>
+            AOS.init({
+                duration: 1000,
+                once: true,
+                offset: 100
+            });
+        </script>
+        <script src="{% static 'js/comment.js' %}"></script>
+        <footer class="footer">
+            <p>© 2025 リーグ・オブ・レジェンド ファンサイト</p>
+        </footer>
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+<title>register</title>
+<link rel="icon" type="image/jpg" href="{% static 'image/icone.jpg' %}">
+{% block title %}アカウント作成{% endblock title %}
+
+{% block content %}
+<div class="form-content my-3 p-3">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-5">
+                <div class="card shadow-lg border-0 rounded-lg mt-0 mb-3">
+                    <img src="{% static 'image/fan.jpg' %}" class="jpg" alt="fan">
+                    <div class="card-header justify-content-center">
+                        <h3 class="font-weight-light my-4 text-center">アカウント作成</h3>
+                    </div>
+                    
+                    <!-- エラーメッセージを表示 -->
+                    {% if form.errors %}
+                        <div class="top-error-container">
+                            {% for field in form %}
+                                {% for error in field.errors %}
+                                    <div>{{ error }}</div>
+                                {% endfor %}
+                            {% endfor %}
+                            {% for error in form.non_field_errors %}
+                                <div>{{ error }}</div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                    
+                    <div class="card-body">
+                        <form method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            
+                            <div class="form-group">
+                                <label class="small mb-1">ユーザー名</label>
+                                {{ form.username }}
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="small mb-1">メールアドレス</label>
+                                {{ form.email }}
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="small mb-1">パスワード</label>
+                                {{ form.password1 }}
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="small mb-1">パスワード（確認）</label>
+                                {{ form.password2 }}
+                            </div>
+                            
+                            <div class="form-group mt-4 mb-0">
+                                <button type="submit" class="btn btn-primary">アカウント作成</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card-footer text-center">
+                        <div class="small">
+                            <a href="{% url 'login' %}">アカウントお持ちの方はこちら</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
