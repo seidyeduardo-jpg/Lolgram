@@ -1,5 +1,12 @@
 # LEAGUE_OF_GRAM
 
+## 説明動画  How to use this web site  in video
+
+プロジェクトの使い方や機能を説明する動画は、下の画像をクリックしてご覧ください：
+https://youtu.be/btSOv3IMNnQ
+
+
+
 ## English
 
 **LEAGUE_OF_GRAM** is a Django-based social media platform inspired by Instagram, specifically designed for **League of Legends fans**. It allows users to share videos, upload photos, like, comment, and interact with the community. Users can create accounts, customize their profiles, and explore content about players and matches.
